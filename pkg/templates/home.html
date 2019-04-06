@@ -4,51 +4,54 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<meta charset="UTF-8">
 		<title>Title</title>
+		<!-- development version, includes helpful console warnings -->
 	</head>
 	<body>
-		<div class="input-group mb-3 mt-3" method="POST">
-		  <input name="search" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-		  <div class="input-group-append">
-			<button class="btn btn-outline-primary" type="button">Filter</button>
-		  </div>
-		</div>
-		</div>
-  			<table class="table table-sm table-bordered table-dark table-striped table-hover">
-				<thead>
-					<tr>
-					  <th scope="col">id</th>
-					  <th scope="col">name</th>
-					  <th scope="col">username</th>
-					  <th scope="col">managed</th>
-					  <th scope="col">model</th>
-					  <th scope="col">department</th>
-					  <th scope="col">building</th>
-					  <th scope="col">mac_address</th>
-					  <th scope="col">udid</th>
-					  <th scope="col">serial_number</th>
-					  <th scope="col">report_date_utc</th>
-					  <th scope="col">report_date_epoch</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for comp in comps %}
+		<script type="text/javascript" src="{{ url_for('static', filename='home.js') }}"></script>
+		<div id="vue-app">
+			<div class="input-group mb-3 mt-3">
+			  <input name="search" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+			</div>
+			<div>
+				<table class="table table-sm table-bordered table-dark table-striped table-hover">
+					<thead>
 						<tr>
-							<th scope="row">{{ comp.id }}</th>
-							<td>{{ comp.name }}</td>
-							<td>{{ comp.username }}</td>
-							<td>{{ comp.managed }}</td>
-							<td>{{ comp.model }}</td>
-							<td>{{ comp.department }}</td>
-							<td>{{ comp.building }}</td>
-							<td>{{ comp.mac_address }}</td>
-							<td>{{ comp.udid }}</td>
-							<td>{{ comp.serial_number }}</td>
-							<td>{{ comp.report_date_utc }}</td>
-							<td>{{ comp.report_date_epoch }}</td>
+						  <th scope="col">id</th>
+						  <th scope="col">name</th>
+						  <th scope="col">username</th>
+						  <th scope="col">managed</th>
+						  <th scope="col">model</th>
+						  <th scope="col">department</th>
+						  <th scope="col">building</th>
+						  <th scope="col">mac_address</th>
+						  <th scope="col">udid</th>
+						  <th scope="col">serial_number</th>
+						  <th scope="col">report_date_utc</th>
+						  <th scope="col">report_date_epoch</th>
 						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{% for comp in comps %}
+							<tr>
+								<th scope="row">{{ comp.id }}</th>
+								<td>{{ comp.name }}</td>
+								<td>{{ comp.username }}</td>
+								<td>{{ comp.managed }}</td>
+								<td>{{ comp.model }}</td>
+								<td>{{ comp.department }}</td>
+								<td>{{ comp.building }}</td>
+								<td>{{ comp.mac_address }}</td>
+								<td>{{ comp.udid }}</td>
+								<td>{{ comp.serial_number }}</td>
+								<td>{{ comp.report_date_utc }}</td>
+								<td>{{ comp.report_date_epoch }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='home.js') }}"></script>
 </html>
